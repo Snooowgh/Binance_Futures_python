@@ -230,12 +230,12 @@ class RequestClient(object):
 
 
     def post_order(self, symbol: 'str', side: 'OrderSide', ordertype: 'OrderType', 
-                timeInForce: 'TimeInForce' = TimeInForce.INVALID, quantity: 'float' = None,
-                reduceOnly: 'boolean' = None, price: 'float' = None,
-                newClientOrderId: 'str' = None, stopPrice: 'float' = None, 
+                timeInForce: 'TimeInForce' = TimeInForce.INVALID, quantity = None,
+                reduceOnly: 'boolean' = None, price = None,
+                newClientOrderId: 'str' = None, stopPrice = None,
                 workingType: 'WorkingType' = WorkingType.INVALID, closePosition: 'boolean' = None,
                 positionSide: 'PositionSide' = PositionSide.INVALID, callbackRate: 'float' = None,
-                activationPrice: 'float' = None, newOrderRespType: 'OrderRespType' = OrderRespType.INVALID) -> any:
+                activationPrice = None, newOrderRespType: 'OrderRespType' = OrderRespType.INVALID) -> any:
         """
         New Order (TRADE)
 
