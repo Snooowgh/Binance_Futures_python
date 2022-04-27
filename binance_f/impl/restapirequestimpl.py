@@ -209,14 +209,20 @@ class RestApiRequestImpl(object):
         return request
 
     def get_mark_price(self, symbol):
-        check_should_not_none(symbol, "symbol")
         builder = UrlParamsBuilder()
         builder.put_url("symbol", symbol)
 
         request = self.__create_request_by_get("/fapi/v1/premiumIndex", builder)
 
         def parse(json_wrapper):
-            result = MarkPrice.json_parse(json_wrapper)
+            result = list()
+            if symbol:
+                result = MarkPrice.json_parse(json_wrapper)
+            else:
+                data_list = json_wrapper.convert_2_array()
+                for item in data_list.get_items():
+                    element = MarkPrice.json_parse(item)
+                    result.append(element)
             return result
 
         request.json_parser = parse
