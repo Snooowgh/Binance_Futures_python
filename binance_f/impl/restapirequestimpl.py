@@ -390,7 +390,7 @@ class RestApiRequestImpl(object):
         builder.put_url("side", side)
         builder.put_url("type", ordertype)
         builder.put_url("timeInForce", timeInForce)
-        builder.put_url("quantity", quantity)
+        builder.put_url("quantity", str(quantity))
         builder.put_url("reduceOnly", reduceOnly)
         builder.put_url("price", price)
         builder.put_url("newClientOrderId", newClientOrderId)
