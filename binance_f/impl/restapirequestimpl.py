@@ -404,7 +404,7 @@ class RestApiRequestImpl(object):
 
 
         request = self.__create_request_by_post_with_signature("/fapi/v1/order", builder)
-        print("post order url: " + request.url)
+        # print("post order url: " + request.url)
 
         def parse(json_wrapper):
             result = Order.json_parse(json_wrapper)
